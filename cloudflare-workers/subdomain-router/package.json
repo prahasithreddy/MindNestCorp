@@ -1,0 +1,14 @@
+{
+  "name": "mindnestcorp-subdomain-router",
+  "version": "1.0.0",
+  "description": "Cloudflare Worker to route product subdomains to their GCP Cloud Run backends",
+  "main": "worker.js",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "tail": "wrangler tail"
+  },
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  }
+}
