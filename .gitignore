@@ -1,5 +1,5 @@
 # dependencies
-/node_modules
+node_modules
 /.pnp
 .pnp.js
 .yarn/install-state.gz
@@ -29,6 +29,10 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# cloudflare workers
+.wrangler
+**/package-lock.json
 
 # typescript
 *.tsbuildinfo
