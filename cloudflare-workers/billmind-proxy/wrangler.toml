@@ -1,0 +1,15 @@
+name = "billmind-proxy"
+main = "worker.js"
+compatibility_date = "2024-01-01"
+
+# Route configuration - update with your actual domain
+# After deploying, add a route in Cloudflare Dashboard:
+# Route: mindnestcorp.com/billmind*
+# Or uncomment and configure below:
+
+# routes = [
+#   { pattern = "mindnestcorp.com/billmind*", zone_name = "mindnestcorp.com" }
+# ]
+
+[vars]
+ENVIRONMENT = "production"
