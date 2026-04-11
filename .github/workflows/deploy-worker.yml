@@ -7,6 +7,7 @@ on:
     # changes to the Next.js marketing site.
     paths:
       - cloudflare-workers/**
+  workflow_dispatch:
 
 # Prevent concurrent worker deployments.
 concurrency:
