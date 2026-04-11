@@ -1,0 +1,34 @@
+name: Deploy Cloudflare Worker
+
+on:
+  push:
+    branches: [main]
+    # Only run when worker files change — avoids unnecessary deploys on
+    # changes to the Next.js marketing site.
+    paths:
+      - cloudflare-workers/**
+
+# Prevent concurrent worker deployments.
+concurrency:
+  group: deploy-worker-production
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: Deploy Worker
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Required GitHub secrets:
+      #   CLOUDFLARE_API_TOKEN  — Create at https://dash.cloudflare.com/profile/api-tokens
+      #                           with "Edit Cloudflare Workers" template permissions.
+      #   CLOUDFLARE_ACCOUNT_ID — Found on the right side of your Cloudflare dashboard home.
+      - name: Deploy with Wrangler
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: cloudflare-workers/subdomain-router

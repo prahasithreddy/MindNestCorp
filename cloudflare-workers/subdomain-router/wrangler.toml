@@ -2,14 +2,17 @@ name = "mindnestcorp-subdomain-router"
 main = "worker.js"
 compatibility_date = "2024-01-01"
 
-# Route configuration for all product subdomains
-# After deploying, configure routes in Cloudflare Dashboard
-# or uncomment and add routes below:
-
-# routes = [
-#   { pattern = "billmind.mindnestcorp.com/*", zone_name = "mindnestcorp.com" },
-#   { pattern = "product2.mindnestcorp.com/*", zone_name = "mindnestcorp.com" },
-# ]
+routes = [
+  { pattern = "billmind.mindnestcorp.com/*", zone_name = "mindnestcorp.com" },
+  # Add a route here for each new product:
+  # { pattern = "saas2.mindnestcorp.com/*", zone_name = "mindnestcorp.com" },
+]
 
 [vars]
 ENVIRONMENT = "production"
+
+# Product backend URLs — one var per subdomain, named PRODUCT_<SUBDOMAIN>_URL.
+# The worker reads env.PRODUCT_<UPPERCASE_SUBDOMAIN>_URL at request time.
+# To add a new product: add its var here and a route above, then redeploy.
+PRODUCT_BILLMIND_URL = "https://billmind-app-17325932137.us-central1.run.app"
+# PRODUCT_SAAS2_URL = "https://saas2-app-xxx.us-central1.run.app"
