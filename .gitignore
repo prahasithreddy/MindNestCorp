@@ -32,9 +32,6 @@ yarn-error.log*
 
 # cloudflare workers
 .wrangler
-**/package-lock.json
-# Cloudflare Worker lockfiles must be committed so wrangler-action@v3 can run npm ci in CI.
-!cloudflare-workers/**/package-lock.json
 
 # typescript
 *.tsbuildinfo
