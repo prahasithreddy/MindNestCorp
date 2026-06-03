@@ -21,6 +21,20 @@ const liveProducts = [
       "Dashboard with analytics",
     ],
   },
+  {
+    name: "Vesto",
+    tagline: "AI-Powered Stock Market Intelligence",
+    description:
+      "A mobile app for modern investors. Track real-time market data, research any stock with AI-generated institutional reports, manage a smart watchlist, follow curated market news, and monitor upcoming earnings — all in one dark, beautifully designed app.",
+    status: "Live",
+    href: "/vesto",
+    features: [
+      "AI-powered institutional research reports",
+      "Real-time market dashboard & heatmap",
+      "Smart watchlist with technical indicators",
+      "Curated market news & earnings calendar",
+    ],
+  },
 ];
 
 const upcomingProducts = [

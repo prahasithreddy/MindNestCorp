@@ -1,0 +1,433 @@
+import Image from "next/image";
+
+export default function VestoPage() {
+  return (
+    <>
+      <HeroSection />
+      <HomeFeatureSection />
+      <WatchlistFeatureSection />
+      <AIResearchFeatureSection />
+      <NewsFeatureSection />
+      <EarningsFeatureSection />
+      <DownloadCTA />
+    </>
+  );
+}
+
+/* ─── 1. HERO ─────────────────────────────────────────────────────────────── */
+
+function HeroSection() {
+  return (
+    <section className="relative overflow-hidden bg-[#0a0a0a] px-4 pb-0 pt-20 sm:pt-28 sm:px-6 lg:px-8">
+      {/* Background glow */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 h-[600px] w-[900px] rounded-full bg-[#D4F53C]/5 blur-[140px]"
+      />
+
+      <div className="relative mx-auto max-w-7xl">
+        <div className="flex flex-col items-center text-center">
+          {/* Pill badge */}
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#D4F53C]/20 bg-[#D4F53C]/10 px-4 py-1.5">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#D4F53C]" />
+            <span className="text-xs font-semibold uppercase tracking-widest text-[#D4F53C]">
+              Now available on iOS & Android
+            </span>
+          </div>
+
+          {/* Headline */}
+          <h1 className="text-5xl font-black tracking-tight text-white sm:text-6xl lg:text-7xl">
+            Invest smarter with{" "}
+            <span className="text-[#D4F53C]">AI-powered</span>
+            <br className="hidden sm:block" /> market intelligence
+          </h1>
+
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-400">
+            Real-time market data, institutional-grade AI research, smart watchlists, curated
+            news, and an earnings calendar — all in one beautifully dark app.
+          </p>
+
+          {/* CTA Buttons */}
+          <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row">
+            <AppStoreButton />
+            <PlayStoreButton />
+          </div>
+        </div>
+
+        {/* 5-phone fan showcase */}
+        <div className="relative mt-16 flex items-end justify-center">
+          {/* Earnings — leftmost, smallest */}
+          <div
+            className="relative z-10 flex-none"
+            style={{ transform: "rotate(-9deg) translateY(72px)", marginRight: "-28px" }}
+          >
+            <PhoneMockup
+              src="/vesto/screenshots/earnings.png"
+              alt="Earnings Calendar"
+              className="h-[260px] w-auto opacity-80"
+            />
+          </div>
+
+          {/* Watchlist — left medium */}
+          <div
+            className="relative z-20 flex-none"
+            style={{ transform: "rotate(-4.5deg) translateY(30px)", marginRight: "-24px" }}
+          >
+            <PhoneMockup
+              src="/vesto/screenshots/watchlist.png"
+              alt="Smart Watchlist"
+              className="h-[390px] w-auto opacity-90"
+            />
+          </div>
+
+          {/* Home — center, largest */}
+          <div className="relative z-30 flex-none">
+            <PhoneMockup
+              src="/vesto/screenshots/home.png"
+              alt="Market Dashboard"
+              priority
+              className="h-[520px] w-auto drop-shadow-[0_40px_80px_rgba(212,245,60,0.15)]"
+            />
+          </div>
+
+          {/* AI Research — right medium */}
+          <div
+            className="relative z-20 flex-none"
+            style={{ transform: "rotate(4.5deg) translateY(30px)", marginLeft: "-24px" }}
+          >
+            <PhoneMockup
+              src="/vesto/screenshots/ai-research.png"
+              alt="AI Research"
+              className="h-[390px] w-auto opacity-90"
+            />
+          </div>
+
+          {/* News — rightmost, smallest */}
+          <div
+            className="relative z-10 flex-none"
+            style={{ transform: "rotate(9deg) translateY(72px)", marginLeft: "-28px" }}
+          >
+            <PhoneMockup
+              src="/vesto/screenshots/news.png"
+              alt="Market News"
+              className="h-[260px] w-auto opacity-80"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ─── 2. HOME DASHBOARD ──────────────────────────────────────────────────── */
+
+function HomeFeatureSection() {
+  return (
+    <FeatureSection
+      badge="Home"
+      badgeAccent
+      headline="Your complete market overview, at a glance"
+      description="Open the app and instantly see what matters — BTC, VIX, and Gold prices with live charts, a color-coded sector heatmap, and the day's top gainers, losers, and unusual volume movers. Everything you need before placing a trade."
+      bullets={[
+        "Live BTC, VIX & Gold price cards with mini-charts",
+        "Market heatmap across 9 sectors",
+        "Gainers, Losers & Unusual Volume tabs",
+      ]}
+      screenshot="/vesto/screenshots/home.png"
+      screenshotAlt="Vesto Home — Market Dashboard"
+      phoneRight
+      bg="#0a0a0a"
+    />
+  );
+}
+
+/* ─── 3. WATCHLIST ───────────────────────────────────────────────────────── */
+
+function WatchlistFeatureSection() {
+  return (
+    <FeatureSection
+      badge="Watchlist"
+      headline="Track every stock that matters to you"
+      description="Build a personal watchlist and get a technical snapshot for each ticker on a single compact card — moving averages, RSI, 52-week range, momentum, and relative volume, all without having to open a chart."
+      bullets={[
+        "MA 50/200 crossover indicator",
+        "RSI with overbought/oversold signal",
+        "52-week range positioning & relative volume",
+      ]}
+      screenshot="/vesto/screenshots/watchlist.png"
+      screenshotAlt="Vesto Smart Watchlist"
+      phoneRight={false}
+      bg="#111111"
+    />
+  );
+}
+
+/* ─── 4. AI RESEARCH ─────────────────────────────────────────────────────── */
+
+function AIResearchFeatureSection() {
+  return (
+    <FeatureSection
+      badge="AI Research ✦"
+      badgeAccent
+      headline="Institutional-grade research, instantly"
+      description="Search any ticker and get a comprehensive AI-generated report in seconds. Covers the business model, valuation, financials, risk factors, and technical setup — the kind of deep analysis previously reserved for Wall Street analysts."
+      bullets={[
+        "Research Foundation — business model & competitive moat",
+        "Valuation & Financials — revenue, margins, fair value",
+        "Risk & Red Teaming — bear cases and red flags",
+        "Technicals — chart patterns, RSI, moving averages",
+      ]}
+      screenshot="/vesto/screenshots/ai-research.png"
+      screenshotAlt="Vesto AI Research"
+      phoneRight
+      bg="#0a0a0a"
+    />
+  );
+}
+
+/* ─── 5. NEWS ────────────────────────────────────────────────────────────── */
+
+function NewsFeatureSection() {
+  return (
+    <FeatureSection
+      badge="News"
+      headline="Stay ahead of the market"
+      description="Get curated, real-time financial news organized into four feeds — broad markets, stocks in your watchlist, upcoming earnings, and macro economy. Know what's moving the market before it moves your portfolio."
+      bullets={[
+        "Markets, My Stocks, Earnings & Economy feeds",
+        "Relevant ticker tags on every story",
+        "Real-time headlines from Benzinga",
+      ]}
+      screenshot="/vesto/screenshots/news.png"
+      screenshotAlt="Vesto Market News"
+      phoneRight={false}
+      bg="#111111"
+    />
+  );
+}
+
+/* ─── 6. EARNINGS CALENDAR ───────────────────────────────────────────────── */
+
+function EarningsFeatureSection() {
+  return (
+    <FeatureSection
+      badge="Earnings"
+      headline="Never miss an earnings release"
+      description="See which companies are reporting today, tomorrow, and over the next 7 days, complete with market cap, EPS estimates, and pre/post-market timing. Earnings season becomes your edge, not your blind spot."
+      bullets={[
+        "Today, Tomorrow & Next 7 Days views",
+        "EPS estimates with analyst consensus",
+        "Pre-market & after-market timing",
+      ]}
+      screenshot="/vesto/screenshots/earnings.png"
+      screenshotAlt="Vesto Earnings Calendar"
+      phoneRight
+      bg="#0a0a0a"
+    />
+  );
+}
+
+/* ─── 7. DOWNLOAD CTA ────────────────────────────────────────────────────── */
+
+function DownloadCTA() {
+  return (
+    <section id="download" className="bg-[#0a0a0a] px-4 py-28 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl">
+        <div className="relative overflow-hidden rounded-3xl border border-[#D4F53C]/15 bg-[#111111] px-8 py-20 text-center">
+          <div
+            aria-hidden
+            className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[400px] w-[700px] rounded-full bg-[#D4F53C]/5 blur-[100px]"
+          />
+          <div className="relative">
+            <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#D4F53C]">
+              <span className="text-2xl font-black text-black">V</span>
+            </div>
+            <h2 className="text-4xl font-black tracking-tight text-white sm:text-5xl">
+              Start investing smarter today
+            </h2>
+            <p className="mx-auto mt-4 max-w-xl text-lg text-gray-400">
+              Download Vesto for free and get instant access to AI research, live market data,
+              and everything you need to make better investment decisions.
+            </p>
+            <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <AppStoreButton large />
+              <PlayStoreButton large />
+            </div>
+            <p className="mt-6 text-sm text-gray-600">Free to download · Available on iOS & Android</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ─── SHARED: FEATURE SECTION ────────────────────────────────────────────── */
+
+function FeatureSection({
+  badge,
+  badgeAccent = false,
+  headline,
+  description,
+  bullets,
+  screenshot,
+  screenshotAlt,
+  phoneRight,
+  bg,
+}: {
+  badge: string;
+  badgeAccent?: boolean;
+  headline: string;
+  description: string;
+  bullets: string[];
+  screenshot: string;
+  screenshotAlt: string;
+  phoneRight: boolean;
+  bg: string;
+}) {
+  const textContent = (
+    <div>
+      <div
+        className={`mb-4 inline-flex items-center gap-2 rounded-full border px-3 py-1 ${
+          badgeAccent
+            ? "border-[#D4F53C]/20 bg-[#D4F53C]/10"
+            : "border-white/10 bg-white/5"
+        }`}
+      >
+        <span
+          className={`text-xs font-semibold ${badgeAccent ? "text-[#D4F53C]" : "text-gray-300"}`}
+        >
+          {badge}
+        </span>
+      </div>
+      <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">{headline}</h2>
+      <p className="mt-5 text-lg leading-relaxed text-gray-400">{description}</p>
+      <ul className="mt-8 space-y-3">
+        {bullets.map((b) => (
+          <li key={b} className="flex items-start gap-3 text-sm text-gray-300">
+            <span
+              className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-xs ${
+                badgeAccent
+                  ? "bg-[#D4F53C]/20 text-[#D4F53C]"
+                  : "bg-white/10 text-white"
+              }`}
+            >
+              ✓
+            </span>
+            {b}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+
+  const phoneContent = (
+    <div className={`flex justify-center ${phoneRight ? "lg:justify-end" : "lg:justify-start"}`}>
+      <PhoneMockup
+        src={screenshot}
+        alt={screenshotAlt}
+        className="h-[500px] w-auto drop-shadow-[0_20px_60px_rgba(212,245,60,0.07)]"
+      />
+    </div>
+  );
+
+  return (
+    <section
+      className="overflow-hidden py-24 px-4 sm:px-6 lg:px-8"
+      style={{ backgroundColor: bg }}
+    >
+      <div className="mx-auto max-w-7xl">
+        <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
+          {phoneRight ? (
+            <>
+              {textContent}
+              {phoneContent}
+            </>
+          ) : (
+            <>
+              <div className="lg:order-last">{textContent}</div>
+              <div className="lg:order-first">{phoneContent}</div>
+            </>
+          )}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ─── SHARED: PHONE MOCKUP ───────────────────────────────────────────────── */
+
+function PhoneMockup({
+  src,
+  alt,
+  priority = false,
+  className = "",
+}: {
+  src: string;
+  alt: string;
+  priority?: boolean;
+  className?: string;
+}) {
+  return (
+    <div className={`relative ${className}`} style={{ aspectRatio: "9/19.5" }}>
+      <div className="absolute inset-0 rounded-[3rem] border-[3px] border-white/10 bg-black shadow-2xl" />
+      <div className="absolute left-1/2 top-3 z-10 h-6 w-24 -translate-x-1/2 rounded-full bg-black" />
+      <div className="absolute inset-[3px] overflow-hidden rounded-[2.8rem]">
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          sizes="(max-width: 768px) 200px, 260px"
+          className="object-cover object-top"
+          priority={priority}
+        />
+      </div>
+    </div>
+  );
+}
+
+/* ─── SHARED: STORE BUTTONS ──────────────────────────────────────────────── */
+
+function AppStoreButton({ large = false }: { large?: boolean }) {
+  return (
+    <a
+      href="#"
+      className={`group flex items-center gap-3 rounded-xl border border-white/10 bg-[#1c1c1e] px-5 transition-all hover:border-white/20 hover:bg-[#2a2a2a] ${large ? "py-4" : "py-3"}`}
+    >
+      <svg
+        viewBox="0 0 24 24"
+        className={`fill-white ${large ? "h-7 w-7" : "h-6 w-6"}`}
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+      </svg>
+      <div className="text-left">
+        <div className={`text-gray-400 ${large ? "text-xs" : "text-[10px]"}`}>Download on the</div>
+        <div className={`font-semibold text-white ${large ? "text-base" : "text-sm"}`}>App Store</div>
+      </div>
+    </a>
+  );
+}
+
+function PlayStoreButton({ large = false }: { large?: boolean }) {
+  return (
+    <a
+      href="#"
+      className={`group flex items-center gap-3 rounded-xl border border-white/10 bg-[#1c1c1e] px-5 transition-all hover:border-white/20 hover:bg-[#2a2a2a] ${large ? "py-4" : "py-3"}`}
+    >
+      <svg
+        viewBox="0 0 24 24"
+        className={`${large ? "h-7 w-7" : "h-6 w-6"}`}
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M3.18 23.76a2 2 0 0 1-1-.27 2.1 2.1 0 0 1-1-1.83V2.31a2.1 2.1 0 0 1 1-1.83 2 2 0 0 1 2 0l18 9.72a2.08 2.08 0 0 1 0 3.63l-18 9.72a2 2 0 0 1-1 .21z" fill="#EA4335"/>
+        <path d="M2.18 23.22L13.5 12 2.18.78A2.1 2.1 0 0 0 1.18 2.31v19.35a2.1 2.1 0 0 0 1 1.56z" fill="#FBBC04"/>
+        <path d="M21.18 10.27L17.5 8.27 13.5 12l4 3.73 3.68-2a2.08 2.08 0 0 0 0-3.46z" fill="#4285F4"/>
+        <path d="M2.18.78L13.5 12l4-3.73-13-7a2 2 0 0 0-2.32.51z" fill="#34A853"/>
+      </svg>
+      <div className="text-left">
+        <div className={`text-gray-400 ${large ? "text-xs" : "text-[10px]"}`}>Get it on</div>
+        <div className={`font-semibold text-white ${large ? "text-base" : "text-sm"}`}>Google Play</div>
+      </div>
+    </a>
+  );
+}
