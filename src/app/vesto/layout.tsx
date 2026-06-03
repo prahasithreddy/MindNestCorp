@@ -25,13 +25,11 @@ export default function VestoLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} bg-[#0a0a0a] text-white antialiased`}>
-        <VestoNav />
-        <main>{children}</main>
-        <VestoFooter />
-      </body>
-    </html>
+    <div className={`${inter.className} bg-[#0a0a0a] text-white antialiased min-h-screen flex flex-col`}>
+      <VestoNav />
+      <main className="flex-1">{children}</main>
+      <VestoFooter />
+    </div>
   );
 }
 
