@@ -19,7 +19,6 @@ export default function VestoPage() {
 function HeroSection() {
   return (
     <section className="relative overflow-hidden bg-[#0a0a0a] px-4 pb-0 pt-10 sm:pt-20 sm:px-6 lg:px-8">
-      {/* Background glow */}
       <div
         aria-hidden
         className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 h-[600px] w-[900px] rounded-full bg-[#D4F53C]/5 blur-[140px]"
@@ -27,37 +26,31 @@ function HeroSection() {
 
       <div className="relative mx-auto max-w-7xl">
         <div className="flex flex-col items-center text-center">
-          {/* Pill badge */}
           <div className="mb-4 sm:mb-6 inline-flex items-center gap-2 rounded-full border border-[#D4F53C]/20 bg-[#D4F53C]/10 px-3 sm:px-4 py-1 sm:py-1.5">
             <span className="h-1.5 w-1.5 rounded-full bg-[#D4F53C]" />
             <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-[#D4F53C]">
-              Now available on iOS &amp; Android
+              Available on iOS &amp; Android
             </span>
           </div>
 
-          {/* Headline */}
           <h1 className="text-[2rem] leading-[1.15] font-black tracking-tight text-white sm:text-6xl lg:text-7xl">
-            Invest smarter with{" "}
-            <span className="text-[#D4F53C]">AI-powered</span>
-            <br className="hidden sm:block" /> market intelligence
+            The market, decoded.
           </h1>
 
-          <p className="mx-auto mt-3 sm:mt-6 max-w-2xl text-sm sm:text-lg leading-relaxed text-gray-400">
-            Real-time market data, institutional-grade AI research, smart watchlists, curated
-            news, and an earnings calendar — all in one beautifully dark app.
+          <p className="mx-auto mt-3 sm:mt-6 max-w-xl text-sm sm:text-lg leading-relaxed text-gray-400">
+            Real-time market data, AI-generated research reports, smart
+            watchlists, and an earnings calendar — everything in a single,
+            beautifully designed app.
           </p>
 
-          {/* CTA Buttons */}
           <div className="mt-5 sm:mt-10 flex flex-row flex-wrap items-center justify-center gap-3 sm:gap-4">
             <AppStoreButton />
             <PlayStoreButton />
           </div>
         </div>
 
-        {/* Phone fan showcase — 3 phones on mobile, 5 on sm+ */}
+        {/* Phone fan showcase */}
         <div className="relative mt-8 sm:mt-12 flex items-end justify-center">
-
-          {/* Earnings — leftmost, hidden on mobile */}
           <div className="relative z-10 flex-none hidden sm:block -rotate-[9deg] translate-y-[72px] -mr-7">
             <PhoneMockup
               src="/vesto/screenshots/earnings.png"
@@ -66,7 +59,6 @@ function HeroSection() {
             />
           </div>
 
-          {/* Watchlist — left */}
           <div className="relative z-20 flex-none -rotate-[4.5deg] translate-y-[15px] sm:translate-y-[30px] -mr-4 sm:-mr-6">
             <PhoneMockup
               src="/vesto/screenshots/watchlist.png"
@@ -75,7 +67,6 @@ function HeroSection() {
             />
           </div>
 
-          {/* Home — center, largest */}
           <div className="relative z-30 flex-none">
             <PhoneMockup
               src="/vesto/screenshots/home.png"
@@ -85,7 +76,6 @@ function HeroSection() {
             />
           </div>
 
-          {/* AI Research — right */}
           <div className="relative z-20 flex-none rotate-[4.5deg] translate-y-[15px] sm:translate-y-[30px] -ml-4 sm:-ml-6">
             <PhoneMockup
               src="/vesto/screenshots/ai-research.png"
@@ -94,7 +84,6 @@ function HeroSection() {
             />
           </div>
 
-          {/* News — rightmost, hidden on mobile */}
           <div className="relative z-10 flex-none hidden sm:block rotate-[9deg] translate-y-[72px] -ml-7">
             <PhoneMockup
               src="/vesto/screenshots/news.png"
@@ -113,17 +102,17 @@ function HeroSection() {
 function HomeFeatureSection() {
   return (
     <FeatureSection
-      badge="Home"
+      badge="Dashboard"
       badgeAccent
       headline="Your complete market overview, at a glance"
-      description="Open the app and instantly see what matters — BTC, VIX, and Gold prices with live charts, a color-coded sector heatmap, and the day's top gainers, losers, and unusual volume movers. Everything you need before placing a trade."
+      description="Open the app and immediately see what matters — BTC, VIX, and Gold with live charts, a sector heatmap, and the day's top movers. Everything you need to orient yourself before placing a trade."
       bullets={[
-        "Live BTC, VIX & Gold price cards with mini-charts",
-        "Market heatmap across 9 sectors",
-        "Gainers, Losers & Unusual Volume tabs",
+        "Live BTC, VIX, and Gold price cards with mini-charts",
+        "Color-coded sector heatmap across 9 sectors",
+        "Gainers, losers, and unusual volume in one tap",
       ]}
       screenshot="/vesto/screenshots/home.png"
-      screenshotAlt="Vesto Home — Market Dashboard"
+      screenshotAlt="Vesto Market Dashboard"
       phoneRight
       bg="#0a0a0a"
     />
@@ -137,11 +126,11 @@ function WatchlistFeatureSection() {
     <FeatureSection
       badge="Watchlist"
       headline="Track every stock that matters to you"
-      description="Build a personal watchlist and get a technical snapshot for each ticker on a single compact card — moving averages, RSI, 52-week range, momentum, and relative volume, all without having to open a chart."
+      description="Build a personal watchlist and get a full technical snapshot for each ticker on a single compact card — no chart needed."
       bullets={[
-        "MA 50/200 crossover indicator",
-        "RSI with overbought/oversold signal",
-        "52-week range positioning & relative volume",
+        "MA 50/200 crossover with trend direction signal",
+        "RSI with overbought and oversold alerts",
+        "52-week range position and relative volume",
       ]}
       screenshot="/vesto/screenshots/watchlist.png"
       screenshotAlt="Vesto Smart Watchlist"
@@ -156,15 +145,15 @@ function WatchlistFeatureSection() {
 function AIResearchFeatureSection() {
   return (
     <FeatureSection
-      badge="AI Research ✦"
+      badge="AI Research"
       badgeAccent
       headline="Institutional-grade research, instantly"
-      description="Search any ticker and get a comprehensive AI-generated report in seconds. Covers the business model, valuation, financials, risk factors, and technical setup — the kind of deep analysis previously reserved for Wall Street analysts."
+      description="Search any ticker and receive a comprehensive AI-generated report in seconds — the kind of analysis previously reserved for Wall Street analysts."
       bullets={[
-        "Research Foundation — business model & competitive moat",
-        "Valuation & Financials — revenue, margins, fair value",
-        "Risk & Red Teaming — bear cases and red flags",
-        "Technicals — chart patterns, RSI, moving averages",
+        "Business model, competitive moat, and market position",
+        "Valuation, financials, and fair value assessment",
+        "Risk factors, bear cases, and red flags",
+        "Technical setup — chart patterns, RSI, moving averages",
       ]}
       screenshot="/vesto/screenshots/ai-research.png"
       screenshotAlt="Vesto AI Research"
@@ -180,10 +169,10 @@ function NewsFeatureSection() {
   return (
     <FeatureSection
       badge="News"
-      headline="Stay ahead of the market"
-      description="Get curated, real-time financial news organized into four feeds — broad markets, stocks in your watchlist, upcoming earnings, and macro economy. Know what's moving the market before it moves your portfolio."
+      headline="Stay ahead of market-moving events"
+      description="Curated, real-time financial news organized into four feeds. Know what's moving the market before it moves your portfolio."
       bullets={[
-        "Markets, My Stocks, Earnings & Economy feeds",
+        "Markets, My Stocks, Earnings, and Economy feeds",
         "Relevant ticker tags on every story",
         "Real-time headlines from Benzinga",
       ]}
@@ -202,11 +191,11 @@ function EarningsFeatureSection() {
     <FeatureSection
       badge="Earnings"
       headline="Never miss an earnings release"
-      description="See which companies are reporting today, tomorrow, and over the next 7 days, complete with market cap, EPS estimates, and pre/post-market timing. Earnings season becomes your edge, not your blind spot."
+      description="See which companies are reporting today, tomorrow, and over the next 7 days — with EPS estimates and market timing. Earnings season becomes your edge."
       bullets={[
-        "Today, Tomorrow & Next 7 Days views",
+        "Today, tomorrow, and next 7 days views",
         "EPS estimates with analyst consensus",
-        "Pre-market & after-market timing",
+        "Pre-market and after-market timing",
       ]}
       screenshot="/vesto/screenshots/earnings.png"
       screenshotAlt="Vesto Earnings Calendar"
@@ -232,17 +221,18 @@ function DownloadCTA() {
               <span className="text-xl sm:text-2xl font-black text-black">V</span>
             </div>
             <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white">
-              Start investing smarter today
+              Start investing with clarity
             </h2>
-            <p className="mx-auto mt-3 sm:mt-4 max-w-xl text-sm sm:text-lg text-gray-400">
-              Download Vesto for free and get instant access to AI research, live market data,
-              and everything you need to make better investment decisions.
+            <p className="mx-auto mt-3 sm:mt-4 max-w-lg text-sm sm:text-lg text-gray-400">
+              Download Vesto free and get instant access to AI research, live market data, and everything you need to make better decisions.
             </p>
             <div className="mt-6 sm:mt-10 flex flex-row flex-wrap items-center justify-center gap-3 sm:gap-4">
               <AppStoreButton large />
               <PlayStoreButton large />
             </div>
-            <p className="mt-4 sm:mt-6 text-xs sm:text-sm text-gray-600">Free to download · Available on iOS &amp; Android</p>
+            <p className="mt-4 sm:mt-6 text-xs sm:text-sm text-gray-600">
+              Free to download · iOS &amp; Android
+            </p>
           </div>
         </div>
       </div>
@@ -291,7 +281,9 @@ function FeatureSection({
       <h2 className="text-[0.82rem] leading-snug font-bold tracking-tight text-white sm:text-3xl lg:text-4xl">
         {headline}
       </h2>
-      <p className="hidden sm:block mt-4 text-base lg:text-lg leading-relaxed text-gray-400">{description}</p>
+      <p className="hidden sm:block mt-4 text-base lg:text-lg leading-relaxed text-gray-400">
+        {description}
+      </p>
       <ul className="mt-2 sm:mt-6 space-y-1.5 sm:space-y-2.5">
         {bullets.map((b) => (
           <li key={b} className="flex items-start gap-1.5 sm:gap-3 text-[9px] sm:text-sm text-gray-300">
@@ -313,11 +305,9 @@ function FeatureSection({
 
   const phoneContent = (
     <div className={`flex justify-center ${phoneRight ? "lg:justify-end" : "lg:justify-start"}`}>
-      {/* Mobile: compact phone */}
       <div className="sm:hidden">
         <PhoneMockup src={screenshot} alt={screenshotAlt} className="h-[155px] w-auto" compact />
       </div>
-      {/* Desktop: full-size phone */}
       <div className="hidden sm:block">
         <PhoneMockup
           src={screenshot}
@@ -415,8 +405,12 @@ function AppStoreButton({ large = false }: { large?: boolean }) {
         <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
       </svg>
       <div className="text-left">
-        <div className={`text-gray-400 ${large ? "text-[10px] sm:text-xs" : "text-[9px] sm:text-[10px]"}`}>Download on the</div>
-        <div className={`font-semibold text-white ${large ? "text-sm sm:text-base" : "text-xs sm:text-sm"}`}>App Store</div>
+        <div className={`text-gray-400 ${large ? "text-[10px] sm:text-xs" : "text-[9px] sm:text-[10px]"}`}>
+          Download on the
+        </div>
+        <div className={`font-semibold text-white ${large ? "text-sm sm:text-base" : "text-xs sm:text-sm"}`}>
+          App Store
+        </div>
       </div>
     </a>
   );
@@ -439,8 +433,12 @@ function PlayStoreButton({ large = false }: { large?: boolean }) {
         <path d="M2.18.78L13.5 12l4-3.73-13-7a2 2 0 0 0-2.32.51z" fill="#34A853"/>
       </svg>
       <div className="text-left">
-        <div className={`text-gray-400 ${large ? "text-[10px] sm:text-xs" : "text-[9px] sm:text-[10px]"}`}>Get it on</div>
-        <div className={`font-semibold text-white ${large ? "text-sm sm:text-base" : "text-xs sm:text-sm"}`}>Google Play</div>
+        <div className={`text-gray-400 ${large ? "text-[10px] sm:text-xs" : "text-[9px] sm:text-[10px]"}`}>
+          Get it on
+        </div>
+        <div className={`font-semibold text-white ${large ? "text-sm sm:text-base" : "text-xs sm:text-sm"}`}>
+          Google Play
+        </div>
       </div>
     </a>
   );
