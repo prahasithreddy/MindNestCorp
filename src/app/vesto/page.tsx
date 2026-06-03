@@ -18,7 +18,7 @@ export default function VestoPage() {
 
 function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-[#0a0a0a] px-4 pb-0 pt-10 sm:pt-28 sm:px-6 lg:px-8">
+    <section className="relative overflow-hidden bg-[#0a0a0a] px-4 pb-0 pt-10 sm:pt-20 sm:px-6 lg:px-8">
       {/* Background glow */}
       <div
         aria-hidden
@@ -55,7 +55,7 @@ function HeroSection() {
         </div>
 
         {/* Phone fan showcase — 3 phones on mobile, 5 on sm+ */}
-        <div className="relative mt-8 sm:mt-16 flex items-end justify-center">
+        <div className="relative mt-8 sm:mt-12 flex items-end justify-center">
 
           {/* Earnings — leftmost, hidden on mobile */}
           <div className="relative z-10 flex-none hidden sm:block -rotate-[9deg] translate-y-[72px] -mr-7">
@@ -220,9 +220,9 @@ function EarningsFeatureSection() {
 
 function DownloadCTA() {
   return (
-    <section id="download" className="bg-[#0a0a0a] px-4 py-12 sm:py-28 sm:px-6 lg:px-8">
+    <section id="download" className="bg-[#0a0a0a] px-4 py-10 sm:py-20 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
-        <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-[#D4F53C]/15 bg-[#111111] px-6 sm:px-8 py-12 sm:py-20 text-center">
+        <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-[#D4F53C]/15 bg-[#111111] px-6 sm:px-8 py-12 sm:py-16 text-center">
           <div
             aria-hidden
             className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[400px] w-[700px] rounded-full bg-[#D4F53C]/5 blur-[100px]"
@@ -291,8 +291,8 @@ function FeatureSection({
       <h2 className="text-[0.82rem] leading-snug font-bold tracking-tight text-white sm:text-3xl lg:text-4xl">
         {headline}
       </h2>
-      <p className="hidden sm:block mt-5 text-lg leading-relaxed text-gray-400">{description}</p>
-      <ul className="mt-2 sm:mt-8 space-y-1.5 sm:space-y-3">
+      <p className="hidden sm:block mt-4 text-base lg:text-lg leading-relaxed text-gray-400">{description}</p>
+      <ul className="mt-2 sm:mt-6 space-y-1.5 sm:space-y-2.5">
         {bullets.map((b) => (
           <li key={b} className="flex items-start gap-1.5 sm:gap-3 text-[9px] sm:text-sm text-gray-300">
             <span
@@ -322,7 +322,7 @@ function FeatureSection({
         <PhoneMockup
           src={screenshot}
           alt={screenshotAlt}
-          className="h-[500px] w-auto drop-shadow-[0_20px_60px_rgba(212,245,60,0.07)]"
+          className="h-[440px] lg:h-[520px] w-auto drop-shadow-[0_20px_60px_rgba(212,245,60,0.1)]"
         />
       </div>
     </div>
@@ -330,11 +330,11 @@ function FeatureSection({
 
   return (
     <section
-      className="overflow-hidden py-8 sm:py-24 px-4 sm:px-6 lg:px-8"
+      className="overflow-hidden py-8 sm:py-14 lg:py-20 px-4 sm:px-6 lg:px-8"
       style={{ backgroundColor: bg }}
     >
       <div className="mx-auto max-w-7xl">
-        <div className="grid grid-cols-2 items-center gap-4 sm:gap-8 lg:gap-16">
+        <div className="grid grid-cols-2 items-center gap-4 sm:gap-8 lg:gap-12">
           {phoneRight ? (
             <>
               {textContent}
